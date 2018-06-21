@@ -1,0 +1,56 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <TabControl HorizontalAlignment="Left" Height="154" Margin="161,10,0,0" VerticalAlignment="Top" Width="452">
+            <TabItem x:Name="Nowa_pozycja" Header="Nowa pozycja" HorizontalAlignment="Left" Width="92">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="NowyRecordButton" Content="Nowa pozycja" HorizontalAlignment="Left" Margin="145.333,96,0,0" VerticalAlignment="Top" Width="106" Click="AddRecord" Grid.Column="1" >
+                        <Button.BindingGroup>
+                            <BindingGroup/>
+                        </Button.BindingGroup>
+                    </Button>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="185*"/>
+                        <ColumnDefinition Width="262*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Edytuj_pozycję" Header="Edytuj pozycję" HorizontalAlignment="Left" Width="92">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="EditRecordButton" Content="Edytuj pozycję" HorizontalAlignment="Left" Margin="145.333,96,0,0" VerticalAlignment="Top" Width="106" Click="EditRecord" Grid.Column="1" >
+                        <Button.BindingGroup>
+                            <BindingGroup/>
+                        </Button.BindingGroup>
+                    </Button>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="185*"/>
+                        <ColumnDefinition Width="262*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <DataGrid x:Name="GridViewer" HorizontalAlignment="Left" Height="205" Margin="161,206,0,0" VerticalAlignment="Top" Width="472"
+     ItemsSource="{Binding Customers}" FontWeight="Bold" AutoGenerateColumns="False" SelectionChanged="GridViewer_SelectionChanged" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Autor" Binding="{Binding Autor}" />
+                <DataGridTextColumn Header="Tytuł" Binding="{Binding Tytuł}" />
+                <DataGridTextColumn Header="Wydawnictwo" Binding="{Binding Wydawnictwo}" />
+                <DataGridTextColumn Header="Rok" Binding="{Binding rokWydania}" />
+                <DataGridTextColumn Header="ISBN" Binding="{Binding ISBN}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="AutorTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Autor" VerticalAlignment="Top" Width="120" Margin="181,39,0,0"/>
+        <TextBox x:Name="TytułTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Tytuł" VerticalAlignment="Top" Width="120" Margin="181,79,0,0"/>
+        <TextBox x:Name="WydawnictwoTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Wydawnictwo" VerticalAlignment="Top" Width="120" Margin="181,122,0,0"/>
+        <TextBox x:Name="RokWydaniaTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Rok wydania" VerticalAlignment="Top" Width="120" Margin="418,39,0,0"/>
+        <TextBox x:Name="ISBNTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="ISBN" VerticalAlignment="Top" Width="120" Margin="418,79,0,0"/>
+        <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Wyszukiwanie" VerticalAlignment="Top" Width="120" Margin="500,175,0,0"/>
+    </Grid>
+</Window>
